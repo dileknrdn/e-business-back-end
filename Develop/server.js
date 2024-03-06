@@ -1,7 +1,12 @@
 const express = require('express');
 const routes = require('./routes');
 // import sequelize connection
+const sequelize = require('./config/connection');
 
+// import the models
+const { Category, Product, ProductTag, Tag } = require('./models');
+
+// create the express app
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -14,3 +19,4 @@ app.use(routes);
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}!`);
 });
+
